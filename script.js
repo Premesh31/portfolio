@@ -23,9 +23,9 @@ const contactForm = document.getElementById('contactForm');
 const formStatus = document.getElementById('formStatus');
 
 if (contactForm) {
-    contactForm.addEventListener('submit', async function(e) {
+    contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
-        
+
         // Let the user know it is submitting
         if (formStatus) {
             formStatus.classList.remove('d-none', 'alert-success', 'alert-danger');
@@ -34,7 +34,7 @@ if (contactForm) {
         }
 
         const formData = new FormData(contactForm);
-        
+
         try {
             const response = await fetch(contactForm.action, {
                 method: 'POST',
@@ -84,3 +84,54 @@ document.addEventListener('DOMContentLoaded', () => {
         mirror: false
     });
 });
+
+// Close responsive menu when a link is clicked
+const navLinks = document.querySelectorAll('header ul li a');
+const menuCheckbox = document.getElementById('click');
+
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (menuCheckbox && menuCheckbox.checked) {
+            menuCheckbox.checked = false;
+            
+            // Explicitly force the menu to close visually using inline styles
+            // This mathematically guarantees a layout repaint on buggy mobile browsers
+            const ul = document.querySelector('header ul');
+            ul.style.left = '-100%';
+            
+            // Remove the inline lock after the closing animation finishes
+            setTimeout(() => {
+                ul.style.left = '';
+            }, 400);
+        }
+    });
+});
+
+// Update active navigation link dynamically using robust viewport bounds
+const sections = document.querySelectorAll('section');
+
+function updateActiveNav() {
+    let current = '';
+
+    sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        // The section is considered 'current' if its top is above the middle of the screen 
+        // AND its bottom hasn't scrolled completely past the top header
+        if (rect.top <= (window.innerHeight / 2) && rect.bottom >= 150) {
+            current = section.getAttribute('id');
+        }
+    });
+
+    if (current) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+}
+
+// Bind to scroll and run once on load
+window.addEventListener('scroll', updateActiveNav);
+window.addEventListener('load', updateActiveNav);
