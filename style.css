@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@200;300;400;500;600;700;800&family=Roboto:wght@100;300;400&display=swap');
+/* Fonts handled via index.html link */
 
 :root {
   /* --primary-color: #f9532d; */
@@ -22,8 +21,15 @@ html {
   width: 100%;
 }
 
+@media screen and (max-width: 768px) {
+  html {
+    scroll-padding-top: 100px; /* More clearance for mobile nav */
+  }
+}
+
 body {
-  font-family: 'Outfit', sans-serif;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
   background: #ffffff;
   color: #000;
   padding-top: 80px;
@@ -31,10 +37,19 @@ body {
   width: 100%;
 }
 
-/* Genral */
-.custom-container {
-  padding: 0 8.4rem;
+h1, h2, h3, h4, h5, h6, .fw-bold, .logo a {
+  font-family: 'Poppins', sans-serif;
 }
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+}
+
+p {
+  font-weight: 400;
+}
+
+/* Genral */
 
 .img-w {
   width: 100%;
@@ -49,7 +64,7 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 999;
+  z-index: 99999;
 }
 
 .page-header {
@@ -126,9 +141,21 @@ li a:hover {
   padding: 6rem 0;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 277px), 1fr));
-  row-gap: 2rem;
+  row-gap: 3rem; /* Increased for better separation */
   column-gap: 6rem;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    padding: 6rem 0 3rem 0; /* Increased top padding to clear mobile header */
+    row-gap: 4rem; /* More space between text and image on mobile */
+  }
+  
+  .py-5 {
+    padding-top: 6rem !important; /* Increased top padding for all sections on mobile */
+    padding-bottom: 4rem !important;
+  }
 }
 
 .detail {
@@ -384,6 +411,10 @@ li a:hover {
     transition: all 0.3s ease;
   }
 
+  ul li {
+    margin-top: 1.2rem;
+  }
+
   .menu {
     display: block;
     font-size: 1.5rem;
@@ -446,8 +477,9 @@ a.btn.btn-outline-primary:hover {
 }
 
 .card-img-top {
-  height: 220px;
+  aspect-ratio: 16 / 9; /* Perfect widescreen ratio for Behance portfolio thumbnails */
   object-fit: cover;
+  object-position: top; /* Ensures the top branding is never cut if slight cropping happens */
   width: 100%;
 }
 
@@ -527,7 +559,7 @@ a.btn.btn-outline-primary:hover {
 
 /* Dark mode adjustments */
 .dark-mode .custom-input-group label {
-  background-color: #2a313c;
+  background-color: #1a1f24;
   color: #fff;
 }
 

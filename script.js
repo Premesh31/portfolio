@@ -60,6 +60,7 @@ if (contactForm) {
                     formStatus.textContent = 'Thank you for your message! I will get back to you soon.';
                 }
                 contactForm.reset();
+                contactForm.classList.remove('was-validated'); // Reset validation visually so empty fields aren't instantly red.
             } else {
                 const data = await response.json();
                 if (formStatus) {
