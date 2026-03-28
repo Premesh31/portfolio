@@ -18,6 +18,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
   /* Adjust for sticky header */
+  overflow-x: hidden !important;
+  width: 100%;
 }
 
 body {
@@ -25,6 +27,8 @@ body {
   background: #ffffff;
   color: #000;
   padding-top: 80px;
+  overflow-x: hidden !important;
+  width: 100%;
 }
 
 /* Genral */
@@ -429,15 +433,30 @@ a.btn.btn-outline-primary {
 a.btn.btn-outline-primary:hover {
   color: white;
   background-color: var(--primary-color);
-
 }
 
 .card {
   border: 1px solid #cecece !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+.card-img-top {
+  height: 220px;
+  object-fit: cover;
+  width: 100%;
 }
 
 .dark-mode .card {
   border: none !important;
+}
+
+.dark-mode .card:hover {
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4) !important;
 }
 
 .dark-mode a.btn.btn-outline-primary {
@@ -448,4 +467,75 @@ a.btn.btn-outline-primary:hover {
 .dark-mode a.btn.btn-outline-primary:hover {
   color: #fff;
   background-color: #df6aff;
+}
+
+/* Custom Input Group for Contact */
+.custom-input-group {
+  position: relative;
+  margin-top: 0.8rem;
+}
+
+.custom-input-group label {
+  position: absolute;
+  top: -11px;
+  left: 15px;
+  background-color: #fff;
+  padding: 0 8px;
+  font-size: 0.95rem;
+  color: #333;
+  z-index: 5;
+}
+
+.custom-input-group .form-control {
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  padding: 0.8rem 1rem;
+  box-shadow: none;
+  background-color: transparent;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.custom-input-group .form-control:focus {
+  border-color: var(--primary-color) !important;
+}
+
+.custom-input-group .form-control::placeholder {
+  color: #adb5bd;
+}
+
+/* Validation styling override for custom input groups */
+.was-validated .custom-input-group .form-control:invalid {
+  border-color: #dc3545 !important;
+  background-image: none !important;
+}
+
+.was-validated .custom-input-group .form-control:invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: none !important;
+}
+
+/* Disable success validation styling */
+.was-validated .custom-input-group .form-control:valid {
+  border-color: var(--primary-color) !important;
+  background-image: none !important;
+}
+
+.was-validated .custom-input-group .form-control:valid:focus {
+  border-color: var(--primary-color) !important;
+  box-shadow: none !important;
+}
+
+/* Dark mode adjustments */
+.dark-mode .custom-input-group label {
+  background-color: #2a313c;
+  color: #fff;
+}
+
+.dark-mode .custom-input-group .form-control {
+  color: #fff;
+  border-color: #3b4453;
+}
+
+.dark-mode .was-validated .custom-input-group .form-control:valid {
+  border-color: var(--primary-color) !important;
 }

@@ -26,6 +26,16 @@ if (contactForm) {
     contactForm.addEventListener('submit', async function (e) {
         e.preventDefault();
 
+        // HTML5 Validation Check
+        if (!contactForm.checkValidity()) {
+            e.stopPropagation();
+            contactForm.classList.add('was-validated');
+            return;
+        }
+        
+        // Add class to show valid states if desired
+        contactForm.classList.add('was-validated');
+
         // Let the user know it is submitting
         if (formStatus) {
             formStatus.classList.remove('d-none', 'alert-success', 'alert-danger');
