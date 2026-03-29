@@ -79,14 +79,14 @@
             achieving organization as well as individual goals. "
           </p>
           <div class="mt-4">
-            <a href="CV.pdf" download="Premesh_Vijayaraghavan_CV.pdf" class="btn btn-primary px-4 py-2"
+            <a href="CV.pdf" download="Premesh_Vijayaraghavan_CV.pdf"
+              class="btn btn-primary px-4 py-2 d-inline-flex align-items-center gap-2"
               style="background-color: var(--primary-color); border-color: var(--primary-color);">
-              <i class="fa-solid fa-download ms-2"></i> Download CV
+              <i class="fa-solid fa-download"></i> Download CV
             </a>
           </div>
         </div>
         <div class="images" data-aos="fade-left" data-aos-delay="200">
-          <img src="" alt="" class="img-w">
         </div>
       </div>
     </div>
@@ -273,8 +273,8 @@
             <img src="Images/Thumbnail-mobile.jpg" class="card-img-top" alt="Project 1">
             <div class="card-body">
               <h5 class="card-title fw-bold">Promopix Design App</h5>
-              <p class="card-text text-muted">A full-stack e-commerce web application with cart functionality and
-                payment integration.</p>
+              <p class="card-text text-muted">An intuitive template design app for creating professional social media
+                and marketing graphics with ease.</p>
               <a href="https://www.behance.net/gallery/246216667/Promopix-Template-Creating-App-UIUX-Design"
                 class="btn btn-outline-primary stretched-link" target="_blank">View Demo</a>
             </div>
@@ -285,9 +285,9 @@
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-dashboard.jpg" class="card-img-top" alt="Project 2">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Dashboard UI</h5>
-              <p class="card-text text-muted">A modern, responsive admin dashboard interface built with charts and data
-                visualization.</p>
+              <h5 class="card-title fw-bold">SmartInvest Dashboard UI</h5>
+              <p class="card-text text-muted">A modern investment dashboard for tracking portfolio performance,
+                analyzing growth, and making informed financial decisions.</p>
               <a href="https://www.behance.net/gallery/246579055/SmartInvest-Investment-Dashboard-UIUX-Design"
                 class="btn btn-outline-primary stretched-link" target="_blank">View
                 Demo</a>
@@ -300,9 +300,9 @@
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-website.jpg" class="card-img-top" alt="ReelGenix Website Design">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Website Design</h5>
-              <p class="card-text text-muted">A high-conversion landing page optimized for performance and SEO with
-                beautiful animations.</p>
+              <h5 class="card-title fw-bold">ReelGenix Website Design</h5>
+              <p class="card-text text-muted">An AI-powered video platform that enables users to create professional
+                content quickly with automated editing and smart tools.</p>
               <a href="https://www.behance.net/gallery/245840215/ReelGenix-Website"
                 class="btn btn-outline-primary stretched-link" target="_blank">View
                 Demo</a>
@@ -312,13 +312,13 @@
         <!-- Project 4 -->
         <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="card h-100 shadow-sm border-0">
-            <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=800"
-              class="card-img-top" alt="Project 4">
+            <img src="Images/Thumbnail-responsive.jpg" class="card-img-top" alt="Project 4">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Mobile App Design</h5>
-              <p class="card-text text-muted">A sleek and intuitive mobile application interface for a fitness tracking
-                startup.</p>
-              <a href="https://www.behance.net/" class="btn btn-outline-primary stretched-link" target="_blank">View
+              <h5 class="card-title fw-bold">SkyRoutes Responsive Design</h5>
+              <p class="card-text text-muted">A travel platform for booking flights, hotels, and personalized tour
+                packages with ease.</p>
+              <a href="https://www.behance.net/gallery/246624109/SkyRoutes-Travel-Booking-Platform"
+                class="btn btn-outline-primary stretched-link" target="_blank">View
                 Demo</a>
             </div>
           </div>
@@ -369,31 +369,36 @@
               <div class="row g-3">
                 <div class="col-md-6">
                   <div class="custom-input-group">
-                    <label for="name" class="fw-semibold">Name <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Name" required>
-                    <div class="invalid-feedback text-start px-2">Please enter your name.</div>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Name *" required>
+                    <label for="name" class="fw-semibold">Name</label>
+                    <div class="invalid-feedback text-start px-2"><i class="fa-solid fa-circle-exclamation me-1"></i>
+                      Please enter your name.</div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="custom-input-group">
-                    <label for="email" class="fw-semibold">Email <span class="text-danger">*</span></label>
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
-                    <div class="invalid-feedback text-start px-2">Please enter a valid email address.</div>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email *" required>
+                    <label for="email" class="fw-semibold">Email</label>
+                    <div class="invalid-feedback text-start px-2"><i class="fa-solid fa-circle-exclamation me-1"></i>
+                      Please enter a valid email address.</div>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="custom-input-group">
-                    <label for="subject" class="fw-semibold">Subject <span class="text-danger">*</span></label>
-                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                    <div class="invalid-feedback text-start px-2">Please provide a subject.</div>
+                    <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject *"
+                      required>
+                    <label for="subject" class="fw-semibold">Subject</label>
+                    <div class="invalid-feedback text-start px-2"><i class="fa-solid fa-circle-exclamation me-1"></i>
+                      Please provide a subject.</div>
                   </div>
                 </div>
                 <div class="col-12">
                   <div class="custom-input-group">
-                    <label for="message" class="fw-semibold">Message <span class="text-danger">*</span></label>
-                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message"
+                    <textarea class="form-control" name="message" id="message" rows="5" placeholder="Message *"
                       required></textarea>
-                    <div class="invalid-feedback text-start px-2">Please write your message.</div>
+                    <label for="message" class="fw-semibold">Message</label>
+                    <div class="invalid-feedback text-start px-2"><i class="fa-solid fa-circle-exclamation me-1"></i>
+                      Please write your message.</div>
                   </div>
                 </div>
                 <!-- Status Message Container -->
