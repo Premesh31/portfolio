@@ -523,12 +523,12 @@ a.btn.btn-outline-primary:hover {
 
 .dark-mode a.btn.btn-outline-primary {
   color: #df6aff;
-  border-color: #df6aff;
+  border-color: var(--primary-color);
 }
 
 .dark-mode a.btn.btn-outline-primary:hover {
   color: #fff;
-  background-color: #df6aff;
+  background-color: var(--primary-color);
 }
 
 /* Custom Input Group for Contact */
@@ -559,8 +559,13 @@ a.btn.btn-outline-primary:hover {
   left: 15px;
   font-size: 0.85rem;
   color: var(--primary-color);
-  background-color: #fff;
+  background-color: rgba(var(--bs-light-rgb), var(--bs-bg-opacity));
   opacity: 1;
+}
+
+.dark-mode .custom-input-group .form-control:focus~label,
+.dark-mode .custom-input-group .form-control:not(:placeholder-shown)~label {
+  background-color: #1a1e24;
 }
 
 .custom-input-group .form-control {
@@ -568,8 +573,14 @@ a.btn.btn-outline-primary:hover {
   border-radius: 8px;
   padding: 0.8rem 1rem;
   box-shadow: none;
-  background-color: transparent;
+  background-color: #ffffff;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark-mode .custom-input-group .form-control {
+  background-color: #2a313c;
+  border-color: #3b4453;
+  color: #fff;
 }
 
 .custom-input-group .form-control:focus {
@@ -615,7 +626,7 @@ a.btn.btn-outline-primary:hover {
 
 .dark-mode .custom-input-group .form-control:focus~label,
 .dark-mode .custom-input-group .form-control:not(:placeholder-shown)~label {
-  background-color: #1e1e1e;
+  background-color: #1a1e24;
   color: #df6aff;
 }
 
@@ -686,14 +697,30 @@ a.btn.btn-outline-primary:hover {
 /* Swiper Settings for Skills */
 .mySkillsSwiper {
   width: 100%;
-  padding: 1rem 0; 
+  padding: 1rem 0;
 }
 
 .mySkillsSwiper .swiper-slide {
-  padding: 24px 12px; /* Safety padding for hover dropshadows and transforms */
+  padding: 24px 12px;
+  /* Safety padding for hover dropshadows and transforms */
 }
 
 .mySkillsSwiper .swiper-wrapper {
   transition-timing-function: linear !important;
 }
-
+
+/* Portfolio Image Effects */
+#portfolio .card {
+  overflow: hidden;
+}
+
+#portfolio .card .card-img-top {
+  transition: filter 0.3s ease;
+  /* Applies a classy black opacity overlay by default */
+  filter: brightness(0.55) contrast(1.1);
+}
+
+#portfolio .card:hover .card-img-top {
+  /* Smoothly returns to full natural brightness on hover */
+  filter: brightness(1) contrast(1);
+}
