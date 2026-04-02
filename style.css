@@ -420,7 +420,7 @@ li a:hover {
   }
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width:768px) {
   header {
     height: auto;
   }
@@ -626,4 +626,140 @@ a.btn.btn-outline-primary:hover {
 
 .dark-mode .was-validated .custom-input-group .form-control:valid {
   border-color: var(--primary-color) !important;
+}
+
+/* Footer styling */
+.site-footer {
+  border-top: 1px solid #e9ecef;
+}
+
+.dark-mode .site-footer {
+  background-color: #2a313c !important;
+  border-top: 1px solid #3b4453;
+}
+
+.site-footer-title {
+  color: var(--text-dark);
+}
+
+.dark-mode .site-footer-title {
+  color: #fff;
+}
+
+.dot-color {
+  color: var(--primary-color);
+}
+
+.dark-mode .dot-color {
+  color: #df6aff;
+}
+
+.footer-link {
+  color: #6c757d;
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: var(--primary-color);
+}
+
+.dark-mode .footer-link {
+  color: #adb5bd;
+}
+
+.dark-mode .footer-link:hover {
+  color: #df6aff;
+}
+
+.footer-divider {
+  border-color: #dee2e6;
+  opacity: 1;
+  border-top-width: 1px;
+}
+
+.dark-mode .footer-divider {
+  border-color: #3b4453;
+  opacity: 1;
+  border-top-width: 1px;
+}
+
+/* Swiper Settings for Skills */
+.mySkillsSwiper {
+  width: 100%;
+  padding: 1rem 0; 
+}
+
+.mySkillsSwiper .swiper-slide {
+  padding: 24px 12px; /* Safety padding for hover dropshadows and transforms */
+}
+
+.mySkillsSwiper .swiper-wrapper {
+  transition-timing-function: linear !important;
+}
+
+/* Smooth Custom Pill Buttons */
+.custom-btn-teal {
+  border-radius: 50px;
+  background-color: #2a9d8f;
+  border: 2px solid #2a9d8f;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(42, 157, 143, 0.15);
+}
+.custom-btn-teal:hover {
+  background-color: transparent;
+  color: #2a9d8f;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(42, 157, 143, 0.3);
+}
+
+.custom-btn-outline {
+  border-radius: 50px;
+  background-color: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+}
+.custom-btn-outline:hover {
+  background-color: var(--primary-color);
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(154, 0, 180, 0.2);
+}
+.dark-mode .custom-btn-outline {
+  border-color: #df6aff;
+  color: #df6aff;
+}
+.dark-mode .custom-btn-outline:hover {
+  background-color: #df6aff;
+  color: #1e1e1e;
+  box-shadow: 0 10px 20px rgba(223, 106, 255, 0.3);
+}
+
+.btn-custom-purple {
+  border-radius: 50px !important;
+  background-color: var(--primary-color) !important;
+  border: 2px solid var(--primary-color) !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  transition: all 0.3s ease-in-out !important;
+  box-shadow: 0 4px 6px rgba(154, 0, 180, 0.15) !important;
+}
+.btn-custom-purple:hover {
+  background-color: transparent !important;
+  color: var(--primary-color) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 10px 20px rgba(154, 0, 180, 0.3) !important;
+}
+.dark-mode .btn-custom-purple {
+  background-color: #df6aff !important;
+  border-color: #df6aff !important;
+  color: #1e1e1e !important;
+}
+.dark-mode .btn-custom-purple:hover {
+  background-color: transparent !important;
+  color: #df6aff !important;
+  box-shadow: 0 10px 20px rgba(223, 106, 255, 0.4) !important;
 }

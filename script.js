@@ -86,7 +86,7 @@ if (contactForm) {
     });
 }
 
-// Initialize AOS
+// Initialize AOS and Swiper
 document.addEventListener('DOMContentLoaded', () => {
     AOS.init({
         duration: 800,
@@ -94,6 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
         once: true,
         mirror: false
     });
+
+    // Initialize Horizontal Auto-Scrolling Swiper for Skills
+    new Swiper('.mySkillsSwiper', {
+        loop: true,
+        autoplay: {
+            delay: 0,
+            disableOnInteraction: false,
+        },
+        speed: 3000,
+        spaceBetween: 24,
+        slidesPerView: 1,
+        breakpoints: {
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            1024: { slidesPerView: 4 }
+        }
+    });
+
+    // Initialize Typed.js for Hero Section
+    if (document.getElementById('typed-text')) {
+        new Typed('#typed-text', {
+            strings: ['UI/UX Designer', 'UI Developer'],
+            typeSpeed: 60,
+            backSpeed: 40,
+            backDelay: 1500,
+            loop: true,
+            showCursor: true,
+            cursorChar: '|'
+        });
+    }
 });
 
 // Close responsive menu when a link is clicked
