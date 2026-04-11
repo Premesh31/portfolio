@@ -72,7 +72,7 @@
       <div class="main">
         <div class="detail" data-aos="fade-right">
           <h3>Hi I'm</h3>
-          <h1 class="text-break">
+          <h1 class="">
             Premesh
             <span style="color:#9A00B4;">Vijayaraghavan</span>
           </h1>
@@ -82,11 +82,11 @@
             <span id="typed-text"></span>
           </p>
           <div class="mt-4">
-            <a href="CV.pdf" download="Premesh_Vijayaraghavan_CV.pdf"
+            <button onclick="const a = document.createElement('a'); a.href = 'Premeshresume-CV.pdf'; a.download = 'Premesh_Vijayaraghavan_CV.pdf'; document.body.appendChild(a); a.click(); document.body.removeChild(a);"
               class="btn btn-primary px-4 py-2 d-inline-flex align-items-center gap-2"
               style="background-color: var(--primary-color); border-color: var(--primary-color);">
               <i class="fa-solid fa-download"></i> Download CV
-            </a>
+            </button>
           </div>
         </div>
         <div class="images" data-aos="fade-left" data-aos-delay="200">
@@ -105,7 +105,8 @@
         </div>
         <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
           <h2 class="fw-bold mb-3">About <span style="color:#9A00B4;">Me</span></h2>
-          <p>I am a UI/UX Designer and UI Developer passionate about creating intuitive, user-centered digital
+          <p class="text-muted">I am a UI/UX Designer and UI Developer passionate about creating intuitive,
+            user-centered digital
             experiences. I design clean and modern interfaces and bring them to life with responsive, pixel-perfect
             front-end development. My focus is on usability, aesthetics, and delivering seamless experiences across web
             and mobile platforms.</p>
@@ -174,7 +175,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
                   alt="HTML5" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">HTML5</h5>
-                <p class="card-text text-muted mb-0">Building semantic and accessible web structures natively.</p>
+                <p class="card-text text-muted mb-0 text-break">Building semantic and accessible web structures
+                  natively.</p>
               </div>
             </div>
           </div>
@@ -186,8 +188,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" alt="CSS3"
                   width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">CSS3</h5>
-                <p class="card-text text-muted mb-0">Styling complex web interfaces with modern CSS architecture
-                  natively.</p>
+                <p class="card-text text-muted mb-0 text-break">Styling complex web interfaces with modern CSS
+                  architecture natively.</p>
               </div>
             </div>
           </div>
@@ -199,7 +201,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
                   alt="JavaScript" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">JavaScript</h5>
-                <p class="card-text text-muted mb-0">Core language fundamentals for creating seamless dynamic
+                <p class="card-text text-muted mb-0 text-break">Core language fundamentals for creating seamless dynamic
                   interactivity.</p>
               </div>
             </div>
@@ -212,8 +214,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
                   alt="Bootstrap" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Bootstrap</h5>
-                <p class="card-text text-muted mb-0">Rapidly designing fully responsive interfaces and components using
-                  layout utilities.</p>
+                <p class="card-text text-muted mb-0 text-break">Rapidly designing fully responsive interfaces and
+                  components using layout utilities.</p>
               </div>
             </div>
           </div>
@@ -225,8 +227,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vscode/vscode-original.svg"
                   alt="Visual Studio Code" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Visual Studio Code</h5>
-                <p class="card-text text-muted mb-0">Frontend Development environment matching modern workflows and
-                  productivity.</p>
+                <p class="card-text text-muted mb-0 text-break">Frontend Development environment matching modern
+                  workflows and productivity.</p>
               </div>
             </div>
           </div>
@@ -238,7 +240,7 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
                   alt="Figma" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Figma</h5>
-                <p class="card-text text-muted mb-0">Designing user interfaces, wireframes, and collaborative
+                <p class="card-text text-muted mb-0 text-break">Designing user interfaces, wireframes, and collaborative
                   high-fidelity prototyping.</p>
               </div>
             </div>
@@ -251,8 +253,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/c/c2/Adobe_XD_CC_icon.svg" alt="Adobe XD"
                   width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Adobe XD</h5>
-                <p class="card-text text-muted mb-0">Creating interactive prototypes and designing responsive user
-                  experiences.</p>
+                <p class="card-text text-muted mb-0 text-break">Creating interactive prototypes and designing responsive
+                  user experiences.</p>
               </div>
             </div>
           </div>
@@ -264,8 +266,8 @@
                 <img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Adobe_Illustrator_CC_icon.svg"
                   alt="Adobe Illustrator" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Adobe Illustrator</h5>
-                <p class="card-text text-muted mb-0">Designing vector graphics, custom icons, and crisp layouts mapping
-                  typography.</p>
+                <p class="card-text text-muted mb-0 text-break">Designing vector graphics, custom icons, and crisp
+                  layouts mapping typography.</p>
               </div>
             </div>
           </div>
@@ -278,8 +280,8 @@
                   class="mb-3"
                   style="filter: invert(39%) sepia(93%) saturate(2224%) hue-rotate(212deg) brightness(100%) contrast(107%);">
                 <h5 class="card-title fw-bold">Miro</h5>
-                <p class="card-text text-muted mb-0">Collaborative whiteboarding for UX research, user flows, and
-                  wireframing phases.</p>
+                <p class="card-text text-muted mb-0 text-break">Collaborative whiteboarding for UX research, user flows,
+                  and wireframing phases.</p>
               </div>
             </div>
           </div>
@@ -292,8 +294,8 @@
                   height="48" class="mb-3"
                   style="filter: invert(52%) sepia(94%) saturate(3025%) hue-rotate(158deg) brightness(95%) contrast(93%);">
                 <h5 class="card-title fw-bold">Marvel App</h5>
-                <p class="card-text text-muted mb-0">Rapidly transforming static UI mockups into interactive, clickable
-                  prototypes.</p>
+                <p class="card-text text-muted mb-0 text-break">Rapidly transforming static UI mockups into interactive,
+                  clickable prototypes.</p>
               </div>
             </div>
           </div>
@@ -304,8 +306,8 @@
               <div class="card-body">
                 <img src="Images/logomark.svg" alt="Balsamiq" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">Balsamiq</h5>
-                <p class="card-text text-muted mb-0">Rapid wireframing and low-fidelity mockups to communicate concepts
-                  quickly.</p>
+                <p class="card-text text-muted mb-0 text-break">Rapid wireframing and low-fidelity mockups to
+                  communicate concepts quickly.</p>
               </div>
             </div>
           </div>
@@ -318,8 +320,8 @@
                 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
                   alt="STS Framework" width="48" height="48" class="mb-3">
                 <h5 class="card-title fw-bold">STS Framework</h5>
-                <p class="card-text text-muted mb-0">Integration and development with Spring Tool Suite for enterprise
-                  applications.</p>
+                <p class="card-text text-muted mb-0 text-break">Integration and development with Spring Tool Suite for
+                  enterprise applications.</p>
               </div>
             </div>
           </div>
@@ -338,7 +340,7 @@
       </div>
       <div class="row g-4">
         <!-- Project 1 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-mobile.jpg" class="card-img-top" alt="Project 1">
             <div class="card-body">
@@ -351,7 +353,7 @@
           </div>
         </div>
         <!-- Project 2 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="200">
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-dashboard.jpg" class="card-img-top" alt="Project 2">
             <div class="card-body">
@@ -366,7 +368,7 @@
           </div>
         </div>
         <!-- Project 3 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="300">
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-website.jpg" class="card-img-top" alt="ReelGenix Website Design">
             <div class="card-body">
@@ -380,7 +382,7 @@
           </div>
         </div>
         <!-- Project 4 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="400">
           <div class="card h-100 shadow-sm border-0">
             <img src="Images/Thumbnail-responsive.jpg" class="card-img-top" alt="Project 4">
             <div class="card-body">
@@ -394,21 +396,21 @@
           </div>
         </div>
         <!-- Project 5 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="500">
           <div class="card h-100 shadow-sm border-0">
-            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?auto=format&fit=crop&q=80&w=800"
-              class="card-img-top" alt="Project 5">
+            <img src="Images/Thumbnail-05.jpg" class="card-img-top" alt="Project 5">
             <div class="card-body">
-              <h5 class="card-title fw-bold">Responsive Design</h5>
+              <h5 class="card-title fw-bold">Justica Law Firm UI</h5>
               <p class="card-text text-muted">A versatile template that effortlessly scales across all devices for an
                 optimal layout.</p>
-              <a href="https://www.behance.net/" class="btn btn-outline-primary stretched-link" target="_blank">View
+              <a href="https://www.behance.net/gallery/247028159/Justica-Law-Firm-Website-UI-Design"
+                class="btn btn-outline-primary stretched-link" target="_blank">View
                 Demo</a>
             </div>
           </div>
         </div>
         <!-- Project 6 -->
-        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="600">
           <div class="card h-100 shadow-sm border-0">
             <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
               class="card-img-top" alt="Project 6">

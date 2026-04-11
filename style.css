@@ -703,15 +703,36 @@ a.btn.btn-outline-primary:hover {
 .mySkillsSwiper .swiper-slide {
   padding: 24px 12px;
   /* Safety padding for hover dropshadows and transforms */
+  height: auto !important;
+  display: flex !important;
+}
+
+.mySkillsSwiper .swiper-slide > .card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .mySkillsSwiper .swiper-wrapper {
   transition-timing-function: linear !important;
 }
 
-/* Portfolio Image Effects */
+/* Portfolio Image Effects & Card Heights */
 #portfolio .card {
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+#portfolio .card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+#portfolio .card .card-body .btn {
+  margin-top: auto;
 }
 
 #portfolio .card .card-img-top {
