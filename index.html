@@ -82,7 +82,8 @@
             <span id="typed-text"></span>
           </p>
           <div class="mt-4">
-            <button onclick="const a = document.createElement('a'); a.href = 'Premeshresume-CV.pdf'; a.download = 'Premesh_Vijayaraghavan_CV.pdf'; document.body.appendChild(a); a.click(); document.body.removeChild(a);"
+            <button
+              onclick="const a = document.createElement('a'); a.href = 'Premeshresume-CV.pdf'; a.download = 'Premesh_Vijayaraghavan_CV.pdf'; document.body.appendChild(a); a.click(); document.body.removeChild(a);"
               class="btn btn-primary px-4 py-2 d-inline-flex align-items-center gap-2"
               style="background-color: var(--primary-color); border-color: var(--primary-color);">
               <i class="fa-solid fa-download"></i> Download CV
@@ -99,9 +100,50 @@
   <section id="about" class="py-5 bg-light">
     <div class="container">
       <div class="row align-items-center">
-        <div class="col-md-6 mb-4 mb-md-0" data-aos="fade-right">
-          <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=800"
-            class="img-fluid rounded shadow" alt="About Me Image">
+        <div class="col-md-6 mb-4 mb-md-0 pt-3" data-aos="fade-right">
+          <!-- Custom Vector Illustration for About Me -->
+          <svg viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" class="img-fluid w-100 drop-shadow">
+            <defs>
+              <linearGradient id="primaryGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#df6aff" />
+                <stop offset="100%" stop-color="#9A00B4" />
+              </linearGradient>
+              <filter id="svg-shadow" x="-10%" y="-10%" width="120%" height="120%">
+                <feDropShadow dx="0" dy="10" stdDeviation="15" flood-color="#000000" flood-opacity="0.1" />
+              </filter>
+            </defs>
+            <!-- Background friendly blob -->
+            <path d="M 120 70 C 250 -20, 500 40, 450 200 C 400 360, 200 440, 70 330 C -60 220, -10 160, 120 70 Z"
+              fill="url(#primaryGrad)" opacity="0.1" />
+
+            <!-- Monitor base -->
+            <rect x="180" y="320" width="60" height="40" fill="#e2e8f0" rx="4" />
+            <path d="M 140 360 L 280 360 L 300 380 L 120 380 Z" fill="#cbd5e1" />
+
+            <!-- Monitor screen (shifted slightly left to make room for boy) -->
+            <rect x="60" y="100" width="300" height="220" rx="12" fill="#1e293b" filter="url(#svg-shadow)" />
+            <rect x="70" y="110" width="280" height="200" rx="6" fill="#f8fafc" />
+
+            <!-- Editor/UI Interface on screen -->
+            <rect x="80" y="120" width="60" height="180" rx="4" fill="#e2e8f0" />
+            <rect x="150" y="120" width="190" height="40" rx="4" fill="#e2e8f0" />
+
+            <!-- Wireframe cards representing UI work -->
+            <rect x="150" y="170" width="85" height="130" rx="6" fill="url(#primaryGrad)" opacity="0.9" />
+            <rect x="255" y="170" width="85" height="130" rx="6" fill="#e2e8f0" />
+
+            <!-- Elements inside active UI card -->
+            <circle cx="192" cy="200" r="16" fill="#ffffff" opacity="0.9" />
+            <rect x="165" y="230" width="55" height="8" rx="4" fill="#ffffff" opacity="0.9" />
+            <rect x="165" y="245" width="40" height="6" rx="3" fill="#ffffff" opacity="0.7" />
+
+            <!-- Floating aesthetic shapes capturing creativity -->
+            <circle cx="40" cy="180" r="25" fill="#df6aff" opacity="0.7" />
+            <rect x="360" y="80" width="35" height="35" rx="8" fill="#9A00B4" opacity="0.8"
+              transform="rotate(25 377 97)" />
+
+
+          </svg>
         </div>
         <div class="col-md-6" data-aos="fade-left" data-aos-delay="200">
           <h2 class="fw-bold mb-3">About <span style="color:#9A00B4;">Me</span></h2>
@@ -338,7 +380,7 @@
         <h2 class="fw-bold">My <span style="color:#9A00B4;">Portfolio</span></h2>
         <p class="text-muted">A selection of my recent works and projects.</p>
       </div>
-      <div class="row g-4">
+      <div class="row g-4 justify-content-center">
         <!-- Project 1 -->
         <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <div class="card h-100 shadow-sm border-0">
@@ -409,20 +451,7 @@
             </div>
           </div>
         </div>
-        <!-- Project 6 -->
-        <div class="col-lg-6 col-md-6" data-aos="fade-up" data-aos-delay="600">
-          <div class="card h-100 shadow-sm border-0">
-            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&q=80&w=800"
-              class="card-img-top" alt="Project 6">
-            <div class="card-body">
-              <h5 class="card-title fw-bold">Corporate Website</h5>
-              <p class="card-text text-muted">A fully-featured B2B website providing comprehensive booking capabilities.
-              </p>
-              <a href="https://www.behance.net/" class="btn btn-outline-primary stretched-link" target="_blank">View
-                Demo</a>
-            </div>
-          </div>
-        </div>
+
       </div>
     </div>
   </section>
