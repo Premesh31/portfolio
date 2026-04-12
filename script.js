@@ -1,21 +1,29 @@
 const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
+const modeIcon = document.querySelector('.mode i');
 const isDarkMode = localStorage.getItem('darkMode') === 'enabled';
+
 if (isDarkMode) {
     body.classList.add('dark-mode');
     document.documentElement.setAttribute('data-bs-theme', 'dark');
     darkModeToggle.checked = true;
+    if (modeIcon) modeIcon.classList.replace('fa-moon', 'fa-sun');
+} else {
+    if (modeIcon) modeIcon.classList.replace('fa-sun', 'fa-moon');
 }
+
 darkModeToggle.addEventListener('change', () => {
     if (darkModeToggle.checked) {
         body.classList.add('dark-mode');
         document.documentElement.setAttribute('data-bs-theme', 'dark');
         localStorage.setItem('darkMode', 'enabled');
+        if (modeIcon) modeIcon.classList.replace('fa-moon', 'fa-sun');
     }
     else {
         body.classList.remove('dark-mode');
         document.documentElement.removeAttribute('data-bs-theme');
         localStorage.setItem('darkMode', 'disabled');
+        if (modeIcon) modeIcon.classList.replace('fa-sun', 'fa-moon');
     }
 });
 
@@ -129,23 +137,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Close responsive menu when a link is clicked
 const navLinks = document.querySelectorAll('header ul li a');
 const menuCheckbox = document.getElementById('click');
+const headerUl = document.querySelector('header ul');
+const menuLabel = document.querySelector('.mainicon');
 
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
         if (menuCheckbox && menuCheckbox.checked) {
             menuCheckbox.checked = false;
-            
-            // Explicitly force the menu to close visually using inline styles
-            // This mathematically guarantees a layout repaint on buggy mobile browsers
-            const ul = document.querySelector('header ul');
-            ul.style.left = '-100%';
-            
-            // Remove the inline lock after the closing animation finishes
-            setTimeout(() => {
-                ul.style.left = '';
-            }, 400);
         }
     });
+});
+
+// Close responsive menu when clicking outside
+document.addEventListener('click', (event) => {
+    if (menuCheckbox && menuCheckbox.checked) {
+        if (headerUl && menuLabel) {
+            // Check if the click occurred outside the menu and the hamburger icon
+            if (!headerUl.contains(event.target) && !menuLabel.contains(event.target) && event.target !== menuCheckbox) {
+                menuCheckbox.checked = false;
+            }
+        }
+    }
 });
 
 // Update active navigation link dynamically using robust viewport bounds
