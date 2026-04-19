@@ -13,17 +13,23 @@ if (isDarkMode) {
 }
 
 darkModeToggle.addEventListener('change', () => {
-    if (darkModeToggle.checked) {
-        body.classList.add('dark-mode');
-        document.documentElement.setAttribute('data-bs-theme', 'dark');
-        localStorage.setItem('darkMode', 'enabled');
-        if (modeIcon) modeIcon.classList.replace('fa-moon', 'fa-sun');
-    }
-    else {
-        body.classList.remove('dark-mode');
-        document.documentElement.removeAttribute('data-bs-theme');
-        localStorage.setItem('darkMode', 'disabled');
-        if (modeIcon) modeIcon.classList.replace('fa-sun', 'fa-moon');
+    // Add rotation effect
+    if (modeIcon) {
+        modeIcon.style.transform = 'rotate(360deg) scale(0)';
+        setTimeout(() => {
+            if (darkModeToggle.checked) {
+                body.classList.add('dark-mode');
+                document.documentElement.setAttribute('data-bs-theme', 'dark');
+                localStorage.setItem('darkMode', 'enabled');
+                modeIcon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                body.classList.remove('dark-mode');
+                document.documentElement.removeAttribute('data-bs-theme');
+                localStorage.setItem('darkMode', 'disabled');
+                modeIcon.classList.replace('fa-sun', 'fa-moon');
+            }
+            modeIcon.style.transform = 'rotate(0deg) scale(1)';
+        }, 200);
     }
 });
 

@@ -139,12 +139,22 @@ li a:hover {
   display: none;
 }
 
+.menu-close {
+  display: none !important;
+}
+
 .mode i {
   font-size: 1.4rem;
   cursor: pointer;
   color: var(--primary-color);
   opacity: 0;
   animation: rightSideAni 1.5s ease forwards;
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+    color 0.3s ease;
+}
+
+.mode i:active {
+  transform: scale(0.8) rotate(45deg);
 }
 
 /* Nav End */
@@ -405,9 +415,19 @@ li a:hover {
     padding: 0 4.4rem;
   }
 
+  .main {
+    column-gap: 2rem;
+  }
+
   .main h3 {
     color: #000;
     margin-top: 1rem;
+  }
+
+  .main h1 {
+    font-size: 3rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 
   header {
@@ -424,6 +444,14 @@ li a:hover {
 
   .dark-mode .menu {
     color: var(--primary-color);
+  }
+
+  #click:checked~.mainicon .menu-bars {
+    display: none !important;
+  }
+
+  #click:checked~.mainicon .menu-close {
+    display: block !important;
   }
 
   .page-header {
@@ -459,9 +487,7 @@ li a:hover {
     top: -600px;
     left: 0;
     z-index: -1;
-    opacity: 0;
-    visibility: hidden;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0s 0.4s;
+    transition: top 0.4s ease;
     padding-bottom: 2rem;
     padding-top: 1rem;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.05);
@@ -470,9 +496,6 @@ li a:hover {
   #click:checked~ul {
     top: 100%;
     z-index: 111111;
-    opacity: 1;
-    visibility: visible;
-    transition: top 0.4s ease, opacity 0.4s ease, visibility 0s 0s;
   }
 
   ul li {
@@ -505,18 +528,18 @@ li a:hover {
     justify-content: flex-start;
     top: 100%;
     left: -300px;
-    transition: left 0.4s ease, opacity 0.4s ease, visibility 0s 0.4s;
+    transition: left 0.4s ease;
     box-shadow: none;
   }
 
   #click:checked~ul {
     left: 0;
     top: 100%;
-    transition: left 0.4s ease, opacity 0.4s ease, visibility 0s 0s;
   }
 
   .images {
-    width: 100%;
+    width: 300px;
+    height: 300px;
     margin: auto;
   }
 
