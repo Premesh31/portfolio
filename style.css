@@ -802,6 +802,12 @@ a.btn.btn-outline-primary:hover {
 
 #portfolio .card .card-body .btn {
   margin-top: auto;
+  display: flex;
+  padding: 14px 14px;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 4px;
+  text-transform: uppercase;
 }
 
 #portfolio .card .card-img-top {
@@ -813,4 +819,25 @@ a.btn.btn-outline-primary:hover {
 #portfolio .card:hover .card-img-top {
   /* Smoothly returns to full natural brightness on hover */
   filter: brightness(1) contrast(1);
+}
+
+a.btn.btn-primary.mt-3 {
+  padding: 12px 24px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+button.btn.btn-primary {
+  display: flex;
+  padding: 12px 24px;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 3px;
+  gap: 12px;
+  text-transform: uppercase;
+}
+
+/* Global sharp buttons override */
+.btn {
+  border-radius: 0 !important;
 }
