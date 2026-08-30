@@ -46,7 +46,7 @@ if (contactForm) {
             contactForm.classList.add('was-validated');
             return;
         }
-        
+
         // Add class to show valid states if desired
         contactForm.classList.add('was-validated');
 
@@ -129,7 +129,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Typed.js for Hero Section
     if (document.getElementById('typed-text')) {
         new Typed('#typed-text', {
-            strings: ['UI/UX Designer', 'UI Developer'],
+            strings: ['UI/UX Designer', 'UI Developer', 'Web Developement'],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 1500,
