@@ -34,11 +34,11 @@ body {
   font-weight: 400;
   background: #ffffff;
   color: var(--text-dark);
-  padding-top: 80px;
+  padding-top: 66px;
   overflow-x: hidden !important;
   width: 100%;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -83,7 +83,7 @@ header {
   width: 100%;
   z-index: 99999;
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-header {
@@ -174,8 +174,8 @@ li a:hover {
   opacity: 0;
   animation: rightSideAni 1.5s ease forwards;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-              color 0.35s ease,
-              opacity 0.25s ease;
+    color 0.35s ease,
+    opacity 0.25s ease;
   line-height: 1;
 }
 
@@ -202,19 +202,18 @@ li a:hover {
 }
 
 @media screen and (max-width: 768px) {
-  .main {
-    padding: 6rem 0 3rem 0;
-    /* Increased top padding to clear mobile header */
-    row-gap: 4rem;
-    /* More space between text and image on mobile */
+  #home .main {
+    padding-top: 2rem;
+    padding-bottom: 2.5rem;
+    row-gap: 2rem;
   }
 
   .py-5 {
-    padding-top: 6rem !important;
-    /* Increased top padding for all sections on mobile */
-    padding-bottom: 4rem !important;
+    padding-top: 4rem !important;
+    padding-bottom: 3rem !important;
   }
 }
+
 
 .detail {
   min-width: 0;
@@ -306,17 +305,17 @@ li a:hover {
 
 .card {
   transition: transform 0.3s ease,
-              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .form-control {
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              box-shadow 0.3s ease;
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.3s ease;
 }
 
 .site-footer,
@@ -324,11 +323,16 @@ li a:hover {
 .footer-link,
 .footer-divider {
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-h1, h2, h3, h4, h5, h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
 p,
 .text-muted,
 .logo a,
@@ -581,8 +585,40 @@ header ul li a {
     padding: 0 1.6rem;
   }
 
+  /* Home section mobile improvements */
+  .main {
+    margin-top: 0;
+    padding: 2.5rem 0 2rem 0;
+    row-gap: 2rem;
+    text-align: center;
+  }
+
   .main h1 {
-    font-size: 3.2rem;
+    font-size: 2.4rem;
+  }
+
+  .main h3 {
+    font-size: 1.2rem;
+  }
+
+  .main p {
+    font-size: 1rem;
+  }
+
+  .detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail .mt-4 {
+    display: flex;
+    justify-content: center;
+  }
+
+  #typed-text {
+    display: block;
+    text-align: center;
   }
 
   ul {
@@ -605,20 +641,21 @@ header ul li a {
   }
 
   .images {
-    width: 300px;
-    height: 300px;
-    margin: auto;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto;
+    order: -1;
+    /* Show photo above text on mobile */
+    box-shadow: 0 0 0 8px rgba(154, 0, 180, 0.18),
+      0 0 0 18px rgba(154, 0, 180, 0.07);
   }
 
-  .main {
-    margin-top: 2rem;
-    padding: 0;
-  }
-
-  .main h1 {
-    font-size: 2.2rem;
+  .detail {
+    order: 1;
   }
 }
+
+
 
 a.btn.btn-outline-primary {
   color: var(--primary-color);
@@ -930,7 +967,7 @@ button.btn.btn-primary {
   border-top: 1px solid rgba(154, 0, 180, 0.08);
   border-bottom: 1px solid rgba(154, 0, 180, 0.08);
   transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #home {
@@ -1034,9 +1071,10 @@ button.btn.btn-primary {
   .competencies-container {
     gap: 10px;
   }
+
   .competency-pill {
     padding: 9px 18px;
     font-size: 0.88rem;
     gap: 8px;
   }
-}
+}
