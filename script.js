@@ -13,23 +13,38 @@ if (isDarkMode) {
 }
 
 darkModeToggle.addEventListener('change', () => {
-    // Add rotation effect
+    const isDark = darkModeToggle.checked;
+
+    // 1. Instantly switch theme classes so CSS transitions (background, text, cards) begin immediately with zero lag
+    if (isDark) {
+        body.classList.add('dark-mode');
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        localStorage.setItem('darkMode', 'enabled');
+    } else {
+        body.classList.remove('dark-mode');
+        document.documentElement.removeAttribute('data-bs-theme');
+        localStorage.setItem('darkMode', 'disabled');
+    }
+
+    // 2. Smoothly rotate, shrink, swap icon and spring back up
     if (modeIcon) {
-        modeIcon.style.transform = 'rotate(360deg) scale(0)';
+        modeIcon.style.transform = 'rotate(180deg) scale(0.2)';
+        modeIcon.style.opacity = '0';
+
         setTimeout(() => {
-            if (darkModeToggle.checked) {
-                body.classList.add('dark-mode');
-                document.documentElement.setAttribute('data-bs-theme', 'dark');
-                localStorage.setItem('darkMode', 'enabled');
+            if (isDark) {
                 modeIcon.classList.replace('fa-moon', 'fa-sun');
             } else {
-                body.classList.remove('dark-mode');
-                document.documentElement.removeAttribute('data-bs-theme');
-                localStorage.setItem('darkMode', 'disabled');
                 modeIcon.classList.replace('fa-sun', 'fa-moon');
             }
-            modeIcon.style.transform = 'rotate(0deg) scale(1)';
-        }, 200);
+            modeIcon.style.transform = 'rotate(360deg) scale(1)';
+            modeIcon.style.opacity = '1';
+        }, 180);
+
+        setTimeout(() => {
+            modeIcon.style.transform = '';
+            modeIcon.style.opacity = '';
+        }, 450);
     }
 });
 
@@ -194,3 +209,74 @@ function updateActiveNav() {
 // Bind to scroll and run once on load
 window.addEventListener('scroll', updateActiveNav);
 window.addEventListener('load', updateActiveNav);
+
+// Force-download the CV PDF across all environments (file://, http://, https://)
+function forceDownloadCV(e) {
+    if (e) e.preventDefault();
+    const fileName = 'Premesh CV 2026.pdf';
+    const filePath = 'Premesh CV 2026.pdf';
+
+    function downloadBlob(blob) {
+        const blobUrl = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(blobUrl), 2000);
+    }
+
+    function downloadBase64(base64Data) {
+        try {
+            const byteCharacters = atob(base64Data);
+            const byteNumbers = new Uint8Array(byteCharacters.length);
+            for (let i = 0; i < byteCharacters.length; i++) {
+                byteNumbers[i] = byteCharacters.charCodeAt(i);
+            }
+            const blob = new Blob([byteNumbers], { type: 'application/pdf' });
+            downloadBlob(blob);
+            return true;
+        } catch (err) {
+            console.error('Base64 decode error:', err);
+            return false;
+        }
+    }
+
+    // If running via file:/// protocol or if base64 data is present, use it for direct client download
+    if (window.location.protocol === 'file:' && window.PREMESH_CV_BASE64) {
+        if (downloadBase64(window.PREMESH_CV_BASE64)) return;
+    }
+
+    // For web servers (http/https), fetch as blob to guarantee immediate file download
+    fetch(filePath)
+        .then(res => {
+            if (!res.ok) throw new Error('Network response was not ok');
+            return res.blob();
+        })
+        .then(blob => {
+            downloadBlob(blob);
+        })
+        .catch(() => {
+            // Fallback 1: use embedded base64 data if available
+            if (window.PREMESH_CV_BASE64 && downloadBase64(window.PREMESH_CV_BASE64)) {
+                return;
+            }
+            // Fallback 2: direct anchor download
+            const fallbackLink = document.createElement('a');
+            fallbackLink.href = filePath;
+            fallbackLink.download = fileName;
+            fallbackLink.target = '_blank';
+            document.body.appendChild(fallbackLink);
+            fallbackLink.click();
+            document.body.removeChild(fallbackLink);
+        });
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cvButton = document.getElementById('downloadCvBtn');
+    if (cvButton) {
+        cvButton.addEventListener('click', forceDownloadCV);
+    }
+});
+

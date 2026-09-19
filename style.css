@@ -37,6 +37,8 @@ body {
   padding-top: 80px;
   overflow-x: hidden !important;
   width: 100%;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 h1,
@@ -80,6 +82,8 @@ header {
   left: 0;
   width: 100%;
   z-index: 99999;
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .page-header {
@@ -143,18 +147,44 @@ li a:hover {
   display: none !important;
 }
 
+.mode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 0;
+  transition: background-color 0.3s ease;
+}
+
+.mode:hover {
+  background-color: rgba(154, 0, 180, 0.08);
+}
+
+.dark-mode .mode:hover {
+  background-color: rgba(223, 106, 255, 0.15);
+}
+
 .mode i {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
   cursor: pointer;
   color: var(--primary-color);
   opacity: 0;
   animation: rightSideAni 1.5s ease forwards;
-  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275),
-    color 0.3s ease;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+              color 0.35s ease,
+              opacity 0.25s ease;
+  line-height: 1;
+}
+
+.dark-mode .mode i {
+  color: #df6aff;
 }
 
 .mode i:active {
-  transform: scale(0.8) rotate(45deg);
+  transform: scale(0.85);
 }
 
 /* Nav End */
@@ -268,6 +298,43 @@ li a:hover {
 
 /* Section 1 End */
 
+
+/* Smooth Global Dark / Light Mode Transitions */
+.bg-light {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.card {
+  transition: transform 0.3s ease,
+              box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.form-control {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s ease;
+}
+
+.site-footer,
+.site-footer-title,
+.footer-link,
+.footer-divider {
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+h1, h2, h3, h4, h5, h6,
+p,
+.text-muted,
+.logo a,
+header ul li a {
+  transition: color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
 
 .dark-mode {
   background-color: var(--primary-dark);
@@ -827,17 +894,149 @@ a.btn.btn-primary.mt-3 {
   text-transform: uppercase;
 }
 
+.download-btn,
 button.btn.btn-primary {
-  display: flex;
+  display: inline-flex;
   padding: 12px 24px;
   justify-content: center;
   align-items: center;
   letter-spacing: 3px;
   gap: 12px;
   text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.download-btn:hover {
+  filter: brightness(0.9);
+  color: #fff;
 }
 
 /* Global sharp buttons override */
 .btn {
   border-radius: 0 !important;
 }
+
+/* Common Themed Section Background (Home, Competencies, Skills, Contact) */
+#home,
+#competencies,
+#skills,
+#contact,
+.section-themed {
+  position: relative;
+  background-color: #fbf6fd;
+  background: linear-gradient(180deg, #fcf8fd 0%, #f6eefa 100%);
+  border-top: 1px solid rgba(154, 0, 180, 0.08);
+  border-bottom: 1px solid rgba(154, 0, 180, 0.08);
+  transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#home {
+  border-top: none;
+}
+
+.competencies-wrapper {
+  background: #ffffff;
+  border: 1px solid rgba(154, 0, 180, 0.12);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.competencies-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+}
+
+.competency-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-dark);
+  background: #ffffff;
+  border: 1.5px solid rgba(154, 0, 180, 0.18);
+  border-radius: 50px !important;
+  box-shadow: 0 4px 14px rgba(154, 0, 180, 0.06);
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  cursor: default;
+  user-select: none;
+}
+
+.competency-pill i {
+  color: var(--primary-color);
+  font-size: 1.05rem;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.competency-pill:hover {
+  transform: translateY(-4px);
+  background: #ffffff;
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 22px rgba(154, 0, 180, 0.22);
+  color: var(--primary-color);
+}
+
+.competency-pill:hover i {
+  transform: scale(1.22);
+}
+
+/* Dark Mode support for Themed Sections */
+.dark-mode #home,
+.dark-mode #competencies,
+.dark-mode #skills,
+.dark-mode #contact,
+.dark-mode .section-themed {
+  background-color: #17131e;
+  background: linear-gradient(180deg, #17131e 0%, #1d1626 100%);
+  border-top: 1px solid rgba(154, 0, 180, 0.2);
+  border-bottom: 1px solid rgba(154, 0, 180, 0.2);
+}
+
+.dark-mode #home {
+  border-top: none;
+}
+
+.dark-mode .competencies-wrapper {
+  background: #252525;
+  border-color: rgba(154, 0, 180, 0.25);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35) !important;
+}
+
+.dark-mode .competency-pill {
+  background: #241c2c;
+  color: #f1e9f5;
+  border-color: rgba(223, 106, 255, 0.3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+}
+
+.dark-mode .competency-pill i {
+  color: #df6aff;
+}
+
+.dark-mode .competency-pill:hover {
+  background: #32233e;
+  border-color: #df6aff;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(154, 0, 180, 0.45);
+}
+
+.dark-mode .competency-pill:hover i {
+  color: #ffffff;
+}
+
+@media screen and (max-width: 768px) {
+  .competencies-container {
+    gap: 10px;
+  }
+  .competency-pill {
+    padding: 9px 18px;
+    font-size: 0.88rem;
+    gap: 8px;
+  }
+}
