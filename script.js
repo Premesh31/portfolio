@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Typed.js for Hero Section
     if (document.getElementById('typed-text')) {
         new Typed('#typed-text', {
-            strings: ['UI/UX Designer', 'UI Developer', 'Web Developement'],
+            strings: ['UI/UX Designer', 'UI Developer', 'Web Development'],
             typeSpeed: 60,
             backSpeed: 40,
             backDelay: 1500,

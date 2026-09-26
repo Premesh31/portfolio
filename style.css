@@ -242,6 +242,12 @@ li a:hover {
   animation: topSideAni 1.5s ease forwards;
 }
 
+#typed-text,
+.typed-cursor {
+  display: inline;
+  white-space: nowrap;
+}
+
 .social {
   display: flex;
   flex-wrap: wrap;
@@ -617,8 +623,14 @@ header ul li a {
   }
 
   #typed-text {
-    display: block;
+    display: inline;
     text-align: center;
+    white-space: nowrap;
+  }
+
+  .typed-cursor {
+    display: inline;
+    white-space: nowrap;
   }
 
   ul {
@@ -986,6 +998,8 @@ button.btn.btn-primary {
   justify-content: center;
   align-items: center;
   gap: 14px;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .competency-pill {
@@ -1069,12 +1083,52 @@ button.btn.btn-primary {
 
 @media screen and (max-width: 768px) {
   .competencies-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 10px;
+    max-width: 480px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 4px;
   }
 
   .competency-pill {
-    padding: 9px 18px;
-    font-size: 0.88rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    padding: 10px 8px;
+    font-size: clamp(0.74rem, 2.7vw, 0.86rem);
+    gap: 7px;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+
+  .competency-pill i {
+    font-size: 0.95rem;
+    flex-shrink: 0;
+  }
+
+  .competency-pill:last-child {
+    grid-column: 1 / -1;
+    margin-top: 2px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .competencies-container {
     gap: 8px;
+    padding: 0;
+  }
+
+  .competency-pill {
+    padding: 8px 4px;
+    font-size: 0.72rem;
+    gap: 5px;
+  }
+
+  .competency-pill i {
+    font-size: 0.82rem;
   }
 }
