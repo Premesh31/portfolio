@@ -1,5 +1,26 @@
 /* Fonts handled via index.html link */
 
+/* ==========================================================================
+   Flash Prevention: Suppress transitions on load & pre-apply dark mode early
+   ========================================================================== */
+
+/* Applied by JS for one frame on page load — kills all transitions so no
+   light→dark or dark→light flash is visible during theme initialization. */
+.no-transition *,
+.no-transition *::before,
+.no-transition *::after {
+  transition: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+}
+
+/* Applied by the inline head script before CSS loads.
+   Pre-colors html so dark background appears instantly, not after JS defer. */
+.dark-mode-pending {
+  background-color: #1e1e1e !important;
+  color: #ffffff !important;
+}
+
 :root {
   /* --primary-color: #f9532d; */
   /* --primary-dark: #1e1e1e; */
@@ -967,10 +988,11 @@ button.btn.btn-primary {
   border-radius: 0 !important;
 }
 
-/* Common Themed Section Background (Home, Competencies, Skills, Contact) */
+/* Common Themed Section Background (Home, Competencies, Education, Skills, Contact) */
 #home,
 #competencies,
-#skills,
+#education,
+#portfolio,
 #contact,
 .section-themed {
   position: relative;
@@ -983,6 +1005,10 @@ button.btn.btn-primary {
 }
 
 #home {
+  border-top: none;
+}
+
+#education+#skills {
   border-top: none;
 }
 
@@ -1040,7 +1066,8 @@ button.btn.btn-primary {
 /* Dark Mode support for Themed Sections */
 .dark-mode #home,
 .dark-mode #competencies,
-.dark-mode #skills,
+.dark-mode #education,
+.dark-mode #portfolio,
 .dark-mode #contact,
 .dark-mode .section-themed {
   background-color: #17131e;
@@ -1050,6 +1077,10 @@ button.btn.btn-primary {
 }
 
 .dark-mode #home {
+  border-top: none;
+}
+
+.dark-mode #education+#skills {
   border-top: none;
 }
 
@@ -1130,5 +1161,460 @@ button.btn.btn-primary {
 
   .competency-pill i {
     font-size: 0.82rem;
+  }
+}
+
+/* ==========================================================================
+   Education Stepper UI/UX Styles
+   ========================================================================== */
+
+.education-stepper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.stepper-item {
+  position: relative;
+  display: flex;
+  gap: 24px;
+}
+
+.stepper-marker {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 48px;
+  flex-shrink: 0;
+}
+
+.stepper-circle {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: -0.5px;
+  background: #ffffff;
+  border: 2px solid rgba(154, 0, 180, 0.28);
+  color: var(--primary-color);
+  box-shadow: 0 4px 14px rgba(154, 0, 180, 0.08);
+  z-index: 2;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+.stepper-item.current .stepper-circle {
+  background: linear-gradient(135deg, #df6aff 0%, #9A00B4 100%);
+  color: #ffffff;
+  border: none !important;
+  box-shadow: 0 6px 20px rgba(154, 0, 180, 0.32);
+}
+
+.stepper-item:hover .stepper-circle {
+  transform: none !important;
+  border-color: var(--primary-color);
+  box-shadow: 0 4px 16px rgba(154, 0, 180, 0.2);
+}
+
+.stepper-item.current:hover .stepper-circle {
+  border: none !important;
+  box-shadow: 0 8px 24px rgba(154, 0, 180, 0.38);
+}
+
+.stepper-line {
+  width: 3px;
+  flex-grow: 1;
+  background: linear-gradient(180deg, #9A00B4 0%, rgba(154, 0, 180, 0.18) 100%);
+  margin: 8px 0;
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.stepper-content {
+  flex-grow: 1;
+  min-width: 0;
+  padding-bottom: 2rem;
+}
+
+.stepper-item:last-child .stepper-content {
+  padding-bottom: 0;
+}
+
+.stepper-card {
+  border-radius: 16px !important;
+  border: 1.5px solid rgba(154, 0, 180, 0.14) !important;
+  background: #ffffff;
+  box-shadow: 0 4px 20px rgba(154, 0, 180, 0.04);
+  transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.stepper-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(154, 0, 180, 0.38) !important;
+  box-shadow: 0 10px 28px rgba(154, 0, 180, 0.14) !important;
+}
+
+.stepper-title {
+  color: var(--text-dark);
+  font-size: 1.25rem;
+  letter-spacing: -0.3px;
+}
+
+.stepper-institution {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+}
+
+.stepper-institution i {
+  color: var(--primary-color);
+  font-size: 1.05rem;
+}
+
+.institution-dot {
+  color: var(--primary-color);
+  opacity: 0.45;
+  font-size: 0.9rem;
+}
+
+.stepper-year-badge {
+  background: rgba(154, 0, 180, 0.08) !important;
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 50px !important;
+  border: 1px solid rgba(154, 0, 180, 0.2);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.stepper-status-badge {
+  background: rgba(154, 0, 180, 0.08) !important;
+  color: var(--primary-color) !important;
+  font-weight: 600;
+  font-size: 0.75rem;
+  padding: 5px 12px;
+  border-radius: 50px !important;
+  border: 1px solid rgba(154, 0, 180, 0.22);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  letter-spacing: 0.2px;
+  transition: all 0.25s ease;
+}
+
+.stepper-status-badge .status-dot,
+.stepper-status-badge i {
+  font-size: 0.62rem;
+  color: var(--primary-color);
+  animation: statusDotPulse 2s infinite ease-in-out;
+}
+
+/* Alternative Status Colors: Emerald (Subtle Green) */
+.stepper-status-badge.badge-emerald {
+  background: rgba(16, 185, 129, 0.1) !important;
+  color: #059669 !important;
+  border-color: rgba(16, 185, 129, 0.25);
+}
+
+.stepper-status-badge.badge-emerald .status-dot,
+.stepper-status-badge.badge-emerald i {
+  color: #10b981;
+}
+
+/* Alternative Status Colors: Electric Indigo / Cyan */
+.stepper-status-badge.badge-indigo {
+  background: rgba(99, 102, 241, 0.1) !important;
+  color: #4f46e5 !important;
+  border-color: rgba(99, 102, 241, 0.25);
+}
+
+.stepper-status-badge.badge-indigo .status-dot,
+.stepper-status-badge.badge-indigo i {
+  color: #6366f1;
+}
+
+/* Alternative Status Colors: Warm Amber (In-Progress) */
+.stepper-status-badge.badge-amber {
+  background: rgba(245, 158, 11, 0.1) !important;
+  color: #d97706 !important;
+  border-color: rgba(245, 158, 11, 0.25);
+}
+
+.stepper-status-badge.badge-amber .status-dot,
+.stepper-status-badge.badge-amber i {
+  color: #f59e0b;
+}
+
+@keyframes statusDotPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+
+  50% {
+    transform: scale(1.18);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+}
+
+.stepper-completed-badge {
+  background: rgba(154, 0, 180, 0.06) !important;
+  color: var(--primary-color) !important;
+  font-weight: 500;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 50px !important;
+  border: 1px solid rgba(154, 0, 180, 0.16);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stepper-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+.stepper-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.stepper-tag {
+  font-size: 0.78rem;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: rgba(154, 0, 180, 0.04);
+  color: var(--text-dark);
+  border: 1px solid rgba(154, 0, 180, 0.12);
+  transition: all 0.2s ease;
+}
+
+.stepper-tag:hover {
+  background: rgba(154, 0, 180, 0.08);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+/* Dark Mode styles for Education Stepper */
+.dark-mode .stepper-circle {
+  background: #201827;
+  border-color: rgba(223, 106, 255, 0.3);
+  color: #df6aff;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+}
+
+.dark-mode .stepper-item.current .stepper-circle {
+  background: linear-gradient(135deg, #df6aff 0%, #9A00B4 100%);
+  color: #ffffff;
+  border: none !important;
+  box-shadow: 0 6px 22px rgba(223, 106, 255, 0.4);
+}
+
+.dark-mode .stepper-item.current:hover .stepper-circle {
+  border: none !important;
+  box-shadow: 0 8px 26px rgba(223, 106, 255, 0.52);
+}
+
+.dark-mode .stepper-line {
+  background: linear-gradient(180deg, #df6aff 0%, rgba(223, 106, 255, 0.15) 100%);
+}
+
+.dark-mode .stepper-card {
+  background: #241c2c;
+  border-color: rgba(223, 106, 255, 0.2) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+.dark-mode .stepper-card:hover {
+  border-color: rgba(223, 106, 255, 0.45) !important;
+  box-shadow: 0 10px 28px rgba(154, 0, 180, 0.4) !important;
+}
+
+.dark-mode .stepper-title {
+  color: #ffffff;
+}
+
+.dark-mode .stepper-institution {
+  color: #f1e9f5;
+}
+
+.dark-mode .stepper-institution i {
+  color: #df6aff;
+}
+
+.dark-mode .stepper-year-badge {
+  background: rgba(223, 106, 255, 0.12) !important;
+  color: #df6aff !important;
+  border-color: rgba(223, 106, 255, 0.28);
+}
+
+.dark-mode .stepper-status-badge {
+  background: rgba(223, 106, 255, 0.12) !important;
+  color: #df6aff !important;
+  border-color: rgba(223, 106, 255, 0.3);
+}
+
+.dark-mode .stepper-status-badge .status-dot,
+.dark-mode .stepper-status-badge i {
+  color: #df6aff;
+}
+
+.dark-mode .stepper-status-badge.badge-emerald {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #34d399 !important;
+  border-color: rgba(52, 211, 153, 0.35);
+}
+
+.dark-mode .stepper-status-badge.badge-emerald .status-dot,
+.dark-mode .stepper-status-badge.badge-emerald i {
+  color: #34d399;
+}
+
+.dark-mode .stepper-status-badge.badge-indigo {
+  background: rgba(99, 102, 241, 0.15) !important;
+  color: #818cf8 !important;
+  border-color: rgba(129, 140, 248, 0.35);
+}
+
+.dark-mode .stepper-status-badge.badge-indigo .status-dot,
+.dark-mode .stepper-status-badge.badge-indigo i {
+  color: #818cf8;
+}
+
+.dark-mode .stepper-status-badge.badge-amber {
+  background: rgba(245, 158, 11, 0.15) !important;
+  color: #fbbf24 !important;
+  border-color: rgba(251, 191, 36, 0.35);
+}
+
+.dark-mode .stepper-status-badge.badge-amber .status-dot,
+.dark-mode .stepper-status-badge.badge-amber i {
+  color: #fbbf24;
+}
+
+.dark-mode .stepper-completed-badge {
+  background: rgba(223, 106, 255, 0.1) !important;
+  color: #df6aff !important;
+  border-color: rgba(223, 106, 255, 0.25);
+}
+
+.dark-mode .stepper-tag {
+  background: rgba(223, 106, 255, 0.07);
+  color: #e2d8e8;
+  border-color: rgba(223, 106, 255, 0.18);
+}
+
+.dark-mode .stepper-tag:hover {
+  background: rgba(223, 106, 255, 0.15);
+  border-color: #df6aff;
+  color: #ffffff;
+}
+
+/* Responsive view optimization for Stepper */
+@media screen and (max-width: 768px) {
+  .stepper-item {
+    gap: 14px;
+  }
+
+  .stepper-marker {
+    width: 38px;
+  }
+
+  .stepper-circle {
+    width: 38px;
+    height: 38px;
+    font-size: 0.82rem;
+  }
+
+  .stepper-line {
+    width: 2.5px;
+    margin: 4px 0;
+  }
+
+  .stepper-content {
+    padding-bottom: 1.5rem;
+  }
+
+  .stepper-card .card-body {
+    padding: 1.15rem !important;
+  }
+
+  .stepper-title {
+    font-size: 1.1rem;
+  }
+
+  .stepper-institution {
+    font-size: 0.86rem;
+    gap: 6px;
+  }
+
+  .stepper-year-badge {
+    font-size: 0.78rem;
+    padding: 4px 10px;
+  }
+
+  .stepper-status-badge,
+  .stepper-completed-badge {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+
+  .stepper-desc {
+    font-size: 0.85rem;
+    line-height: 1.55;
+  }
+
+  .stepper-tags {
+    gap: 5px;
+  }
+
+  .stepper-tag {
+    font-size: 0.7rem;
+    padding: 3px 8px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .stepper-item {
+    gap: 10px;
+  }
+
+  .stepper-marker {
+    width: 32px;
+  }
+
+  .stepper-circle {
+    width: 32px;
+    height: 32px;
+    font-size: 0.75rem;
+  }
+
+  .stepper-card .card-body {
+    padding: 1rem !important;
+  }
+
+  .stepper-title {
+    font-size: 1.02rem;
   }
 }

@@ -1,10 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Premesh V | UI/UX Designer</title>
+  <!-- Theme Init: runs BEFORE CSS renders to prevent dark/light flash on load -->
+  <script>
+    (function () {
+      var saved = localStorage.getItem('darkMode');
+      var isDark = saved !== 'disabled'; // dark by default
+      if (isDark) {
+        document.documentElement.setAttribute('data-bs-theme', 'dark');
+        document.documentElement.classList.add('dark-mode-pending');
+      }
+    })();
+  </script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
@@ -24,7 +35,7 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<body class="dark-mode">
+<body>
   <header>
     <div class="container">
       <div class="page-header">
@@ -60,9 +71,10 @@
           <li><a href="#about" style="--navAni:2">About</a></li>
           <li><a href="#competencies" style="--navAni:3">Competencies</a></li>
           <li><a href="#experience" style="--navAni:4">Experience</a></li>
-          <li><a href="#skills" style="--navAni:5">Skills</a></li>
-          <li><a href="#portfolio" style="--navAni:6">Portfolio</a></li>
-          <li><a href="#contact" style="--navAni:7">Contact</a></li>
+          <li><a href="#education" style="--navAni:5">Education</a></li>
+          <li><a href="#skills" style="--navAni:6">Skills</a></li>
+          <li><a href="#portfolio" style="--navAni:7">Portfolio</a></li>
+          <li><a href="#contact" style="--navAni:8">Contact</a></li>
         </ul>
         <label class="mode">
           <input type="checkbox" id="darkModeToggle">
@@ -233,6 +245,211 @@
                 UX through testing and feedback, and ensured responsive, consistent, and pixel-perfect implementations.
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section id="education" class="py-5 section-themed">
+    <div class="container">
+      <div class="text-center mb-5" data-aos="fade-up">
+        <h2 class="fw-bold">My <span style="color:#9A00B4;">Education</span></h2>
+        <p class="text-muted">Academic background, design credentials, and qualifications.</p>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-9">
+          <div class="education-stepper">
+
+            <!-- Step 1: UI UX Design -->
+            <div class="stepper-item current" data-aos="fade-up" data-aos-delay="100">
+              <div class="stepper-marker">
+                <div class="stepper-circle">
+                  <span class="step-num">01</span>
+                </div>
+                <div class="stepper-line"></div>
+              </div>
+              <div class="stepper-content">
+                <div class="card stepper-card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                      <div>
+                        <span class="badge stepper-status-badge mb-2"><i class="fa-solid fa-circle-dot status-dot"></i> Pursuing</span>
+                        <h4 class="fw-bold mb-1 stepper-title">UI / UX Design</h4>
+                      </div>
+                      <span class="badge stepper-year-badge"><i class="fa-regular fa-calendar-days"></i> 2024 - 2026</span>
+                    </div>
+                    <div class="stepper-institution mb-3">
+                      <i class="fa-solid fa-graduation-cap"></i>
+                      <span class="fw-semibold">Buff Creative College</span>
+                      <span class="institution-dot">•</span>
+                      <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Coimbatore</span>
+                    </div>
+                    <p class="stepper-desc text-muted mb-3">
+                      Specialized program focused on user research methodologies, wireframing, interactive prototyping, design systems, usability heuristic evaluations, and scalable digital interfaces.
+                    </p>
+                    <div class="stepper-tags">
+                      <span class="stepper-tag">UI/UX Design</span>
+                      <span class="stepper-tag">User Research</span>
+                      <span class="stepper-tag">Wireframing</span>
+                      <span class="stepper-tag">Design Systems</span>
+                      <span class="stepper-tag">Figma</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2: Graphic and UI Design -->
+            <div class="stepper-item" data-aos="fade-up" data-aos-delay="150">
+              <div class="stepper-marker">
+                <div class="stepper-circle">
+                  <span class="step-num">02</span>
+                </div>
+                <div class="stepper-line"></div>
+              </div>
+              <div class="stepper-content">
+                <div class="card stepper-card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                      <div>
+                        <span class="badge stepper-completed-badge mb-2"><i class="fa-solid fa-check"></i> Completed</span>
+                        <h4 class="fw-bold mb-1 stepper-title">Graphic and UI Design</h4>
+                      </div>
+                      <span class="badge stepper-year-badge"><i class="fa-regular fa-calendar-days"></i> 2021 - 2022</span>
+                    </div>
+                    <div class="stepper-institution mb-3">
+                      <i class="fa-solid fa-palette"></i>
+                      <span class="fw-semibold">Apex Multimedia Institution</span>
+                      <span class="institution-dot">•</span>
+                      <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Coimbatore</span>
+                    </div>
+                    <p class="stepper-desc text-muted mb-3">
+                      Professional diploma covering graphic design fundamentals, typography, color theory, brand identity systems, digital illustration, and web/mobile interface layouts.
+                    </p>
+                    <div class="stepper-tags">
+                      <span class="stepper-tag">Graphic Design</span>
+                      <span class="stepper-tag">UI Design</span>
+                      <span class="stepper-tag">Visual Identity</span>
+                      <span class="stepper-tag">Typography</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 3: Bachelor of Computer Applications -->
+            <div class="stepper-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="stepper-marker">
+                <div class="stepper-circle">
+                  <span class="step-num">03</span>
+                </div>
+                <div class="stepper-line"></div>
+              </div>
+              <div class="stepper-content">
+                <div class="card stepper-card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                      <div>
+                        <span class="badge stepper-completed-badge mb-2"><i class="fa-solid fa-check"></i> Completed</span>
+                        <h4 class="fw-bold mb-1 stepper-title">Bachelor of Computer Applications (BCA)</h4>
+                      </div>
+                      <span class="badge stepper-year-badge"><i class="fa-regular fa-calendar-days"></i> 2018 - 2021</span>
+                    </div>
+                    <div class="stepper-institution mb-3">
+                      <i class="fa-solid fa-building-columns"></i>
+                      <span class="fw-semibold">Dr. G.R. Damodaran College of Science</span>
+                      <span class="institution-dot">•</span>
+                      <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Coimbatore</span>
+                    </div>
+                    <p class="stepper-desc text-muted mb-3">
+                      Undergraduate degree in computer applications, studying modern web development, software engineering principles, database management systems, and programming fundamentals.
+                    </p>
+                    <div class="stepper-tags">
+                      <span class="stepper-tag">Web Development</span>
+                      <span class="stepper-tag">Software Engineering</span>
+                      <span class="stepper-tag">DBMS</span>
+                      <span class="stepper-tag">Programming</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4: Higher Secondary School -->
+            <div class="stepper-item" data-aos="fade-up" data-aos-delay="250">
+              <div class="stepper-marker">
+                <div class="stepper-circle">
+                  <span class="step-num">04</span>
+                </div>
+                <div class="stepper-line"></div>
+              </div>
+              <div class="stepper-content">
+                <div class="card stepper-card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                      <div>
+                        <span class="badge stepper-completed-badge mb-2"><i class="fa-solid fa-check"></i> Completed</span>
+                        <h4 class="fw-bold mb-1 stepper-title">Higher Secondary School (HSC)</h4>
+                      </div>
+                      <span class="badge stepper-year-badge"><i class="fa-regular fa-calendar-days"></i> 2017 - 2018</span>
+                    </div>
+                    <div class="stepper-institution mb-3">
+                      <i class="fa-solid fa-school"></i>
+                      <span class="fw-semibold">Lakshmi Matriculation School</span>
+                      <span class="institution-dot">•</span>
+                      <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Madurai</span>
+                    </div>
+                    <p class="stepper-desc text-muted mb-3">
+                      Higher secondary certification with core focus in computer science, mathematics, and logical reasoning, establishing a strong foundation in computational thinking.
+                    </p>
+                    <div class="stepper-tags">
+                      <span class="stepper-tag">Higher Secondary</span>
+                      <span class="stepper-tag">Computer Science</span>
+                      <span class="stepper-tag">Mathematics</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 5: Secondary School -->
+            <div class="stepper-item" data-aos="fade-up" data-aos-delay="300">
+              <div class="stepper-marker">
+                <div class="stepper-circle">
+                  <span class="step-num">05</span>
+                </div>
+              </div>
+              <div class="stepper-content">
+                <div class="card stepper-card shadow-sm border-0">
+                  <div class="card-body p-4">
+                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+                      <div>
+                        <span class="badge stepper-completed-badge mb-2"><i class="fa-solid fa-check"></i> Completed</span>
+                        <h4 class="fw-bold mb-1 stepper-title">Secondary School Leaving Certificate (SSLC)</h4>
+                      </div>
+                      <span class="badge stepper-year-badge"><i class="fa-regular fa-calendar-days"></i> 2015 - 2016</span>
+                    </div>
+                    <div class="stepper-institution mb-3">
+                      <i class="fa-solid fa-book-open-reader"></i>
+                      <span class="fw-semibold">Lakshmi Matriculation School</span>
+                      <span class="institution-dot">•</span>
+                      <span class="text-muted"><i class="fa-solid fa-location-dot"></i> Madurai</span>
+                    </div>
+                    <p class="stepper-desc text-muted mb-3">
+                      Secondary school certificate program completed with academic distinction, nurturing creative problem-solving skills and foundational scholastic competencies.
+                    </p>
+                    <div class="stepper-tags">
+                      <span class="stepper-tag">Secondary Education</span>
+                      <span class="stepper-tag">General Curriculum</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

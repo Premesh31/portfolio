@@ -2,6 +2,9 @@ const darkModeToggle = document.getElementById('darkModeToggle');
 const body = document.body;
 const modeIcon = document.querySelector('.mode i');
 
+// Suppress ALL CSS transitions on first load to prevent dark/light flash
+document.documentElement.classList.add('no-transition');
+
 // Default is dark mode — only disable it if user has explicitly chosen light mode
 const savedMode = localStorage.getItem('darkMode');
 const isDarkMode = savedMode !== 'disabled'; // dark by default
@@ -16,6 +19,16 @@ if (isDarkMode) {
     document.documentElement.removeAttribute('data-bs-theme');
     if (modeIcon) modeIcon.classList.replace('fa-sun', 'fa-moon');
 }
+
+// Remove the pending class set by the inline head script (no longer needed)
+document.documentElement.classList.remove('dark-mode-pending');
+
+// Re-enable transitions after the first paint — use double rAF to ensure it's post-render
+requestAnimationFrame(function () {
+    requestAnimationFrame(function () {
+        document.documentElement.classList.remove('no-transition');
+    });
+});
 
 
 darkModeToggle.addEventListener('change', () => {
